@@ -75,3 +75,76 @@ if(lang === 'en') {
         }
     }
 }
+
+//добавление кнопок
+
+function addKeys () {
+    for(let i = 0; i < keys.length; i++) {
+        if (keys[i]['type'] === "functional") {
+            let funcBtn = (new FunctionalButtons(keys[i]['value'], keys[i]["btnName"], keys[i]["code"], keys[i]['type'])).createFuncButton();
+            virtualKeyboard.append(funcBtn);
+        }
+        else {
+            let simpleBtn = (new SimpleButtons(keys[i]['value'],keys[i]["valueShift"],keys[i]["valueRu"],keys[i]["valueShiftRu"], keys[i]["btnName"], keys[i]["code"], keys[i]['type'] )).createSimpleButton();
+            virtualKeyboard.append(simpleBtn);
+        }
+    }
+}
+addKeys();
+
+//все кнопки
+let btn = document.querySelectorAll('.btn');
+let flag = false;
+
+//события клавиатуры
+document.addEventListener('keydown', function(event) {
+    let activeBtn = document.querySelector('#'+event.code);
+    activeBtn.classList.add('active');
+    textarea.focus();
+
+    if(event.shiftKey === true && flag === false) {
+        Shift = '1';
+        for(let i = 0; i < arrBtn; i++) {
+            keysDown[i].classList.add('hidden');
+            keysUp[i].classList.remove('hidden');
+        }
+    }
+
+    if(event.code === "AltLeft") flag = true;
+    if(event.code === "ShiftLeft" && flag) {
+
+        flag = false;
+        if(lang === 'en') {
+            lang = 'ru';
+
+        } else if (lang === 'ru') {
+            lang = 'en';
+        }
+
+        alert(lang);
+    }
+
+    if(event.code === "CapsLock") {
+        if (CapsLock === "0") {
+
+            CapsLock = "1";
+        } else if(CapsLock === "1") {
+            CapsLock = "0";
+        }
+    }
+});
+
+
+document.addEventListener('keyup', function(event) {
+
+    let activeBtn = document.querySelector('#'+event.code);
+    activeBtn.classList.remove('active');
+
+    if(event.shiftKey === false) {
+        Shift = '0';
+        for(let i = 0; i < arrBtn; i++) {
+            keysUp[i].classList.add('hidden');
+            keysDown[i].classList.remove('hidden');
+        }
+    }
+});
