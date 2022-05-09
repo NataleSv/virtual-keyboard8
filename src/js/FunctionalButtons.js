@@ -1,4 +1,4 @@
-export class FunctionalButtons {
+class FunctionalButtons {
     constructor(value, className, codeKey, typeBtn) {
         this.value = value;
 

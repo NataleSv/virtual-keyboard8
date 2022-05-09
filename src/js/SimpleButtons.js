@@ -1,7 +1,7 @@
-import {FunctionalButtons} from "./FunctionalButtons";
 
 
-export class SimpleButtons extends FunctionalButtons{
+
+class SimpleButtons extends FunctionalButtons{
     constructor(value,valueShift,valueRu,valueShiftRu, className, codeKey, typeBtn, ) {
         super(value, className, codeKey, typeBtn);
         this.valueShift = valueShift;

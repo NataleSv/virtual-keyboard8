@@ -1,4 +1,4 @@
-[
+const keys = [
   {
     "key": "`",
     "keyCode": 192,
