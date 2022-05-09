@@ -1,0 +1,287 @@
+@import '../abstracts/variables';
+.btn {
+  padding: 20px;
+  background-color: $primary-color;
+  border: 1px solid $color-light-m;
+  color: $color-light-l;
+  transition: all .7s;
+  &:not(.active):hover {
+    background-color: $primary-color-light;
+    cursor: pointer;
+  }
+}
+.active {
+  background-color: $primary-color-darken;
+  border-radius: 30%;
+  transition: all .7s;
+}
+
+.hidden {
+  display:none;
+}
+
+
+
+.b0 {
+  grid-area: b0;
+}
+
+.b1 {
+  grid-area: b1;
+}
+
+.b3 {
+  grid-area: b3;
+}
+
+.b4 {
+  grid-area: b4;
+}
+
+.b5 {
+  grid-area: b5;
+}
+
+.b6 {
+  grid-area: b6;
+}
+
+.b7 {
+  grid-area: b7;
+}
+
+.b8 {
+  grid-area: b8;
+}
+
+.b9 {
+  grid-area: b9;
+}
+
+.b10 {
+  grid-area: b10;
+}
+
+.b11 {
+  grid-area: b11;
+}
+
+.b12 {
+  grid-area: b12;
+}
+
+.b13 {
+  grid-area: b13;
+}
+
+.b14 {
+  grid-area: b14;
+}
+
+.b15 {
+  grid-area: b15;
+}
+
+.b16 {
+  grid-area: b16;
+}
+
+.b17 {
+  grid-area: b17;
+}
+
+.b18 {
+  grid-area: b18;
+}
+
+.b19 {
+  grid-area: b19;
+}
+
+.b20 {
+  grid-area: b20;
+}
+
+.b21 {
+  grid-area: b21;
+}
+
+.b22 {
+  grid-area: b22;
+}
+
+.b23 {
+  grid-area: b23;
+}
+
+.b24 {
+  grid-area: b24;
+}
+
+.b25 {
+  grid-area: b25;
+}
+
+.b26 {
+  grid-area: b26;
+}
+
+.b27 {
+  grid-area: b27;
+}
+
+.b28 {
+  grid-area: b28;
+}
+
+.b29 {
+  grid-area: b29;
+}
+
+.b30 {
+  grid-area: b30;
+}
+
+.b31 {
+  grid-area: b31;
+}
+
+.b32 {
+  grid-area: b32;
+}
+
+.b33 {
+  grid-area: b33;
+}
+
+.b34 {
+  grid-area: b34;
+}
+
+.b35 {
+  grid-area: b35;
+}
+
+.b36 {
+  grid-area: b36;
+}
+
+.b37 {
+  grid-area: b37;
+}
+
+.b38 {
+  grid-area: b38;
+}
+
+.b39 {
+  grid-area: b39;
+}
+
+.b40 {
+  grid-area: b40;
+}
+
+.b41 {
+  grid-area: b41;
+}
+
+.b42 {
+  grid-area: b42;
+}
+
+.b43 {
+  grid-area: b43;
+}
+
+.b44 {
+  grid-area: b44;
+}
+
+.b45 {
+  grid-area: b45;
+}
+
+.b46 {
+  grid-area: b46;
+}
+
+.b00 {
+  grid-area: b00;
+}
+
+.backspace {
+  grid-area: backspace;
+}
+
+.tab {
+  grid-area: tab;
+}
+
+.del {
+  grid-area: del;
+}
+
+.caps-lock {
+  grid-area: caps-lock;
+}
+
+.enter {
+  grid-area: enter;
+}
+
+.shift-l {
+  grid-area: shift-l;
+}
+
+.top {
+  grid-area: top;
+}
+
+.shift-r {
+  grid-area: shift-r;
+}
+
+.ctrl-l {
+  grid-area: ctrl-l;
+}
+
+.win {
+  grid-area: win;
+}
+
+.alt-l {
+  grid-area: alt-l;
+}
+
+.space {
+  grid-area: space;
+  color: $primary-color;
+  &:hover {
+    color: $primary-color-light;
+  }
+  .active {
+    color: $primary-color-darken;
+  }
+}
+
+
+.alt-r {
+  grid-area: alt-r;
+}
+
+.ctrl-r {
+  grid-area: ctrl-r;
+}
+
+.left {
+  grid-area: left;
+}
+
+.bottom {
+  grid-area: bottom;
+}
+
+.right {
+  grid-area: right;
+}
