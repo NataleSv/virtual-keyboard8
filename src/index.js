@@ -148,3 +148,125 @@ document.addEventListener('keyup', function(event) {
         }
     }
 });
+
+
+//события мыши
+document.addEventListener('mousedown', function (event) {
+    let entryField = document.querySelector("textarea").value;
+    let activeBtn = document.querySelector('#' + event.target.dataset.code);
+    activeBtn.classList.add('active');
+
+    //functional keys
+    //BackSpace
+    if (event.target.dataset.code === "Backspace") {
+
+        let startCursor = document.querySelector("textarea").selectionStart;
+        let endCursor = document.querySelector("textarea").selectionEnd;
+        let textareaLeng = document.querySelector("textarea").value.length;
+
+            document.querySelector("textarea").value = entryField.slice(0, startCursor - 1);
+
+    }
+
+    //CapsLock
+    if (event.target.dataset.code === "CapsLock") {
+
+        if (CapsLock === "0") {
+            CapsLock = "1";
+        } else if (CapsLock === "1") {
+            CapsLock = "0";
+        }
+    }
+
+    //Shift
+    if (event.target.dataset.code === "ShiftLeft" ||
+        event.target.dataset.code === "ShiftRight") {
+        console.log(event.target.dataset.code);
+
+        for (let i = 0; i < arrBtn; i++) {
+            keysDown[i].classList.add('hidden');
+            keysUp[i].classList.remove('hidden');
+        }
+        if (Shift === '0') {
+            Shift = '1';
+        } else if (Shift === '1') {
+            Shift = '0';
+        }
+    }
+
+    //Space
+    if (event.target.dataset.code === "Space") {
+        document.querySelector("textarea").value = entryField + " ";
+    }
+
+    //Enter
+    if (event.target.dataset.code === "Enter") {
+        document.querySelector("textarea").value = entryField + "\n";
+    }
+
+    //Tab
+    if (event.target.dataset.code === "Tab") {
+        document.querySelector("textarea").value = entryField + "    ";
+    }
+
+    //Delete
+
+
+    //letter keys
+    if(event.target.dataset.type === "letter") {
+
+        for(let i = 0; i < keys.length; i++) {
+
+            if (event.target.dataset.code === keys[i]['code']) {
+
+                if(CapsLock === '0') {
+                    if(Shift ==='0') {
+                        document.querySelector("textarea").value = entryField + keys[i]['value'];
+                    } else if (Shift === '1') {
+                        Shift = '0';
+                        document.querySelector("textarea").value = entryField + keys[i]['valueShift'];
+                    }
+                } else if (CapsLock === '1') {
+                    if(Shift === '0') {
+                        document.querySelector("textarea").value = entryField + keys[i]['valueShift'];
+                    } else if (Shift === '1') {
+                        Shift = '0';
+                        document.querySelector("textarea").value = entryField + keys[i]['value'];
+                    }
+                }
+            }
+        }
+
+    }
+
+    //number keys
+    if(event.target.dataset.type === "number") {
+        for(let i = 0; i < keys.length; i++) {
+            if (event.target.dataset.code === keys[i]['code']) {
+                if (Shift === '0') {
+                    document.querySelector("textarea").value = entryField + keys[i]['value'];
+                } else if (Shift === '1') {
+                    Shift = '0';
+                    document.querySelector("textarea").value = entryField + keys[i]['valueShift'];
+                }
+            }
+        }
+    }
+
+});
+
+document.addEventListener('mouseup', function (event) {
+    let activeBtn = document.querySelector('.active');
+    activeBtn.classList.remove('active');
+
+
+    if (event.target.dataset.code === "ShiftLeft" ||
+        event.target.dataset.code === "ShiftRight") {
+
+        for (let i = 0; i < arrBtn; i++) {
+            keysUp[i].classList.add('hidden');
+            keysDown[i].classList.remove('hidden');
+        }
+    }
+});
+
