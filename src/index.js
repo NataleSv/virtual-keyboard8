@@ -90,7 +90,7 @@ wrapper.classList.add('wrapper');
 body.append(wrapper);
 
 let warning = document.createElement('form');
-warning.innerHTML = "Дорогой проверяющий, пожалуйста проверьте работу после 10 числа. Постараюсь исправить некоторые моменты в коде и в оформлении"
+warning.innerHTML = "Дорогой проверяющий, пожалуйста проверьте работу после 10 числа. Постараюсь исправить некоторые моменты в коде и в оформлении. Мой дискорт для связи NataleSv#6370"
 wrapper.append(warning);
 
 let form = document.createElement('form');
