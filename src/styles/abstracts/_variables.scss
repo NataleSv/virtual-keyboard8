@@ -1,6 +1,7 @@
-$primary-color: #7560ab;
-$secondary-color: #370c80;
-$primary-color-darken: darken($primary-color, 10%);
-$primary-color-light: lighten($primary-color, 10%);
+$primary-color: rgba(255, 255, 255, 0.56);
+$secondary-color: #e1dbdb;
+$primary-color-darken: rgba(0, 137, 255, 0.55);
+$primary-color-light: rgba(104, 179, 252, 0.55);
+$primary-color-light-l: lighten($primary-color-light, 10%);
 $color-light-m: #a2a2a2;
-$color-light-l: white;
+$color-light-l: #464646;
