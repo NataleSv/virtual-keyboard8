@@ -1,0 +1,10 @@
+@import "../abstracts/variables";
+.text-description{
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: $primary-color-darken;
+  p {
+    padding-top: 30px;
+  }
+}
