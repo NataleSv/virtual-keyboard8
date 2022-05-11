@@ -391,7 +391,7 @@ const keys = [
     "value": ";",
     "valueShift": ":",
     "valueRu": "ж",
-    "valueShiftRU": "Ж",
+    "valueShiftRu": "Ж",
     "btnName": "b34",
     "type": "letter"
   },
