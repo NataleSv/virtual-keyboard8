@@ -183,27 +183,42 @@ let addActiveClass = function addActiveClass(eventCode) {
    }
 }
 
-
-function addValueTextBtn(entryField, event) {
+function addValueTextBtn (entryField, key, keyUp) {
    if(CapsLock === '0') {
       if(Shift ==='0') {
-         document.querySelector("textarea").value = entryField + event.target.innerText;
+         document.querySelector("textarea").value = entryField + key;
       } 
       else if (Shift === '1') {
-         Shift = '0';
-         document.querySelector("textarea").value = entryField + event.target.innerText;
+         Shift = '0';  
+         document.querySelector("textarea").value = entryField + keyUp;
       }
    } else if (CapsLock === '1') {
-      if(Shift === '0') {
-        document.querySelector("textarea").value = entryField + event.target.innerText;
+      if(Shift === '0') { 
+        document.querySelector("textarea").value = entryField + keyUp;
       } else if (Shift === '1') {
          Shift = '0';
-         document.querySelector("textarea").value = entryField + event.target.innerText;
+         document.querySelector("textarea").value = entryField + key;
       }
    }
 }
 
 document.addEventListener('keydown', function(event) {
+   let entryField = document.querySelector("textarea").value;
+   for(let i = 0; i < keys.length; i++) {
+      if (event.code === keys[i]['code'] && keys[i]['type'] !== 'functional') {
+         if(lang === 'en') {
+            event.preventDefault();
+            addValueTextBtn(entryField, keys[i]['value'], keys[i]['valueShift']);
+         } else if (lang === 'ru') {
+            event.preventDefault();
+            addValueTextBtn(entryField, keys[i]['valueRu'], keys[i]['valueShiftRu']);
+         }
+      }
+   }
+});
+
+document.addEventListener('keydown', function(event) { 
+   console.log(event);
    addActiveClass(event.code);
    textarea.focus();
 
@@ -251,6 +266,7 @@ document.addEventListener('mousedown', function (event) {
 
 
 document.addEventListener('mousedown', function (event) {
+   console.log(event);
    let entryField = document.querySelector("textarea").value;
    /*
    let entryField = document.querySelector("textarea").value;
@@ -354,9 +370,9 @@ document.addEventListener('mousedown', function (event) {
          if (event.target.dataset.code === keys[i]['code']) {
 
             if(lang === 'en') {
-               addValueTextBtn(entryField, event);
+               addValueTextBtn(entryField, keys[i]['value'], keys[i]['valueShift']);
             } else if (lang === 'ru') {
-               addValueTextBtn(entryField, event);
+               addValueTextBtn(entryField, keys[i]['valueRu'], keys[i]['valueShiftRu']);
             }
          }
       }
@@ -378,6 +394,7 @@ document.addEventListener('mousedown', function (event) {
 
 
 document.addEventListener('mouseup', function (event) {
+   console.log(event);
 
    deleteActiveClass();
    if (event.target.dataset.code === "ShiftLeft" ||
