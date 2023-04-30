@@ -577,8 +577,10 @@ const keys = [
     "code": "ArrowUp",
     "value": "▲",
     "valueShift": "▲",
+    "valueRu": "▲",
+    "valueShiftRu": "▲",
     "btnName": "top",
-    "type": "functional"
+    "type": "arrow"
   },
   {
     "key": "Shift",
@@ -649,8 +651,10 @@ const keys = [
     "code": "ArrowLeft",
     "value": "◄",
     "valueShift": "◄",
+    "valueRu": "◄",
+    "valueShiftRu": "◄",
     "btnName": "left",
-    "type": "functional"
+    "type": "arrow"
   },
   {
     "key": "ArrowDown",
@@ -658,8 +662,10 @@ const keys = [
     "code": "ArrowDown",
     "value": "▼",
     "valueShift": "▼",
+    "valueRu": "◄",
+    "valueShiftRu": "◄",
     "btnName": "bottom",
-    "type": "functional"
+    "type": "arrow"
 
   },
   {
@@ -668,8 +674,10 @@ const keys = [
     "code": "ArrowRight",
     "value": "►",
     "valueShift": "►",
+    "valueRu": "►",
+    "valueShiftRu": "►",
     "btnName": "right",
-    "type": "functional"
+    "type": "arrow"
 
   }
 
