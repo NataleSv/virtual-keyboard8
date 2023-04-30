@@ -184,6 +184,25 @@ let addActiveClass = function addActiveClass(eventCode) {
 }
 
 
+function addValueTextBtn(entryField, event) {
+   if(CapsLock === '0') {
+      if(Shift ==='0') {
+         document.querySelector("textarea").value = entryField + event.target.innerText;
+      } 
+      else if (Shift === '1') {
+         Shift = '0';
+         document.querySelector("textarea").value = entryField + event.target.innerText;
+      }
+   } else if (CapsLock === '1') {
+      if(Shift === '0') {
+        document.querySelector("textarea").value = entryField + event.target.innerText;
+      } else if (Shift === '1') {
+         Shift = '0';
+         document.querySelector("textarea").value = entryField + event.target.innerText;
+      }
+   }
+}
+
 document.addEventListener('keydown', function(event) {
    addActiveClass(event.code);
    textarea.focus();
@@ -232,25 +251,35 @@ document.addEventListener('mousedown', function (event) {
 
 
 document.addEventListener('mousedown', function (event) {
-
    let entryField = document.querySelector("textarea").value;
-   let addValueTextBtn = function addText(firstValue, secondValue, i) {
+   /*
+   let entryField = document.querySelector("textarea").value;
+   let addValueTextBtn = function addText() {
       if(CapsLock === '0') {
          if(Shift ==='0') {
-            document.querySelector("textarea").value = entryField + keys[i][firstValue];
-         } else if (Shift === '1') {
+            document.querySelector("textarea").value = entryField + event.target.innerText;
+
+           // console.log(event.target.innerText);
+         } 
+         else if (Shift === '1') {
             Shift = '0';
-            document.querySelector("textarea").value = entryField + keys[i][secondValue];
+            //console.log(keys[i][secondValue]);
+            //console.log(entryField);
+            //document.querySelector("textarea").value = entryField + keys[i][secondValue];
+            document.querySelector("textarea").value = entryField + event.target.innerText;
          }
       } else if (CapsLock === '1') {
          if(Shift === '0') {
-            document.querySelector("textarea").value = entryField + keys[i][secondValue];
+           // document.querySelector("textarea").value = entryField + keys[i][secondValue];
+           document.querySelector("textarea").value = entryField + event.target.innerText;
          } else if (Shift === '1') {
             Shift = '0';
-            document.querySelector("textarea").value = entryField + keys[i][firstValue];
+            //document.querySelector("textarea").value = entryField + keys[i][firstValue];
+            document.querySelector("textarea").value = entryField + event.target.innerText;
          }
       }
    }
+*/
 
    let addValueNumberBtn = function addValueNumberBtn(firstValue, secondValue, i) {
       if (Shift === '0') {
@@ -268,7 +297,7 @@ document.addEventListener('mousedown', function (event) {
    }
 
 
-   
+
    if (event.target.dataset.code === "CapsLock") {
       if (CapsLock === "0") {
          CapsLock = "1";
@@ -324,10 +353,11 @@ document.addEventListener('mousedown', function (event) {
    if(event.target.dataset.type === "letter") {
       for(let i = 0; i < keys.length; i++) {
          if (event.target.dataset.code === keys[i]['code']) {
+
             if(lang === 'en') {
-               addValueTextBtn('value', 'valueShift', i);
+               addValueTextBtn(entryField, event);
             } else if (lang === 'ru') {
-               addValueTextBtn('valueRu', 'valueShiftRu', i);
+               addValueTextBtn(entryField, event);
             }
          }
       }
