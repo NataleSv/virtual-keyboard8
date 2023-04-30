@@ -290,12 +290,11 @@ document.addEventListener('mousedown', function (event) {
       }
    }
 
-
    if (event.target.dataset.code === "Backspace") {
-      let startCursor = document.querySelector("textarea").selectionStart;
-      document.querySelector("textarea").value = entryField.slice(0, startCursor - 1);
+      let tmp = entryField.split('');
+      tmp.pop();
+      document.querySelector('textarea').value = tmp.join('');
    }
-
 
 
    if (event.target.dataset.code === "CapsLock") {
