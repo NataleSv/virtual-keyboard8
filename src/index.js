@@ -111,7 +111,7 @@ textDescription.append(infoLanguageSwitching);
 
 let CapsLock = '0';
 let Shift = '0';
-let lang = 'en';
+let lang;
 
 
 function addKeys () {
@@ -258,6 +258,7 @@ document.addEventListener('keyup', function(event) {
       Shift = '0';
       keysDownFunc();
    }
+   localStorage.setItem('lang', lang);
 });
 
 document.addEventListener('mousedown', function (event) {
@@ -322,6 +323,7 @@ document.addEventListener('mousedown', function (event) {
       if(lang === 'en') {
          lang = 'ru';
          changeRusLang();
+         
 
       } else if (lang === 'ru') {
          lang = 'en';
@@ -348,8 +350,23 @@ document.addEventListener('mouseup', function (event) {
        event.target.closest('div') && event.target.closest('div').dataset.code === "ShiftRight") {
       keysDownFunc();
    }
+   localStorage.setItem('lang', lang);
 });
 
 
 
+document.addEventListener('DOMContentLoaded', function () {
+  
+   if(localStorage.getItem('lang')) {
+      lang = localStorage.getItem('lang');
+   } else {
+      lang = 'en';
+   }
 
+   if(lang === 'en') {
+      changeEngLang();
+   } else if (lang === 'ru') {
+      changeRusLang();
+   }
+
+}); 
