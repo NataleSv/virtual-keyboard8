@@ -202,6 +202,7 @@ function addValueTextBtn (entryField, key, keyUp) {
    }
 }
 
+
 document.addEventListener('keydown', function(event) {
    let entryField = document.querySelector("textarea").value;
    for(let i = 0; i < keys.length; i++) {
@@ -218,7 +219,6 @@ document.addEventListener('keydown', function(event) {
 });
 
 document.addEventListener('keydown', function(event) { 
-   console.log(event);
    addActiveClass(event.code);
    textarea.focus();
 
@@ -261,59 +261,24 @@ document.addEventListener('keyup', function(event) {
 });
 
 document.addEventListener('mousedown', function (event) {
-   addActiveClass(event.target.dataset.code);
+   if (event.target.closest('div')) {
+      addActiveClass(event.target.closest('div').dataset.code);
+   }
 },true);
 
 
 document.addEventListener('mousedown', function (event) {
-   console.log(event);
+
    let entryField = document.querySelector("textarea").value;
-   /*
-   let entryField = document.querySelector("textarea").value;
-   let addValueTextBtn = function addText() {
-      if(CapsLock === '0') {
-         if(Shift ==='0') {
-            document.querySelector("textarea").value = entryField + event.target.innerText;
-
-           // console.log(event.target.innerText);
-         } 
-         else if (Shift === '1') {
-            Shift = '0';
-            //console.log(keys[i][secondValue]);
-            //console.log(entryField);
-            //document.querySelector("textarea").value = entryField + keys[i][secondValue];
-            document.querySelector("textarea").value = entryField + event.target.innerText;
-         }
-      } else if (CapsLock === '1') {
-         if(Shift === '0') {
-           // document.querySelector("textarea").value = entryField + keys[i][secondValue];
-           document.querySelector("textarea").value = entryField + event.target.innerText;
-         } else if (Shift === '1') {
-            Shift = '0';
-            //document.querySelector("textarea").value = entryField + keys[i][firstValue];
-            document.querySelector("textarea").value = entryField + event.target.innerText;
-         }
-      }
-   }
-*/
-
-   let addValueNumberBtn = function addValueNumberBtn(firstValue, secondValue, i) {
-      if (Shift === '0') {
-         document.querySelector("textarea").value = entryField + keys[i][firstValue];
-      } else if (Shift === '1') {
-         Shift = '0';
-         document.querySelector("textarea").value = entryField + keys[i][secondValue];
-      }
-   }
-
-   if (event.target.dataset.code === "Backspace") {
+   
+   if (event.target.closest('div') && event.target.closest('div').dataset.code === "Backspace") {
       let tmp = entryField.split('');
       tmp.pop();
       document.querySelector('textarea').value = tmp.join('');
    }
 
 
-   if (event.target.dataset.code === "CapsLock") {
+   if (event.target.closest('div') && event.target.closest('div').dataset.code === "CapsLock") {
       if (CapsLock === "0") {
          CapsLock = "1";
          keysUpFunc();
@@ -324,9 +289,8 @@ document.addEventListener('mousedown', function (event) {
       }
    }
 
-   if (event.target.dataset.code === "ShiftLeft" ||
-       event.target.dataset.code === "ShiftRight") {
-      console.log(event.target.dataset.code);
+   if ( event.target.closest('div') && (event.target.closest('div').dataset.code === "ShiftLeft" ||
+   event.target.closest('div').dataset.code === "ShiftRight")) {
       keysUpFunc();
 
       if (Shift === '0') {
@@ -336,24 +300,24 @@ document.addEventListener('mousedown', function (event) {
       }
    }
 
-   if (event.target.dataset.code === "Space") {
+   if (event.target.closest('div') && event.target.closest('div').dataset.code === "Space") {
       document.querySelector("textarea").value = entryField + " ";
    }
 
-   if (event.target.dataset.code === "Enter") {
+   if (event.target.closest('div') && event.target.closest('div').dataset.code === "Enter") {
       document.querySelector("textarea").value = entryField + "\n";
    }
 
-   if (event.target.dataset.code === "Tab") {
+   if (event.target.closest('div') && event.target.closest('div').dataset.code === "Tab") {
       document.querySelector("textarea").value = entryField + "    ";
    }
 
-   if (event.target.dataset.code === "Delete") {
+   if (event.target.closest('div') && event.target.closest('div').dataset.code === "Delete") {
       document.querySelector("textarea").value = "";
    }
 
-   if(event.target.dataset.code === "AltLeft") flag = true;
-   if(event.target.dataset.code === "ShiftLeft" && flag) {
+   if(event.target.closest('div') && event.target.closest('div').dataset.code === "AltLeft") flag = true;
+   if(event.target.closest('div') && event.target.closest('div').dataset.code === "ShiftLeft" && flag) {
       flag = false;
       if(lang === 'en') {
          lang = 'ru';
@@ -365,10 +329,9 @@ document.addEventListener('mousedown', function (event) {
       }
    }
 
-   if(event.target.dataset.type === "letter") {
+   if(event.target.closest('div') && event.target.closest('div').dataset.type !== "functional") {
       for(let i = 0; i < keys.length; i++) {
-         if (event.target.dataset.code === keys[i]['code']) {
-
+         if (event.target.closest('div').dataset.code === keys[i]['code']) {
             if(lang === 'en') {
                addValueTextBtn(entryField, keys[i]['value'], keys[i]['valueShift']);
             } else if (lang === 'ru') {
@@ -377,28 +340,12 @@ document.addEventListener('mousedown', function (event) {
          }
       }
    }
-
-
-   if(event.target.dataset.type === "number") {
-      for(let i = 0; i < keys.length; i++) {
-         if (event.target.dataset.code === keys[i]['code']) {
-            if(lang === 'en') {
-               addValueNumberBtn('value', 'valueShift', i);
-         } else if (lang === 'ru') {
-               addValueNumberBtn('valueRu', 'valueShiftRu', i);
-            }
-         }
-      }
-   }
 });
 
-
 document.addEventListener('mouseup', function (event) {
-   console.log(event);
-
    deleteActiveClass();
-   if (event.target.dataset.code === "ShiftLeft" ||
-       event.target.dataset.code === "ShiftRight") {
+   if (event.target.closest('div') && event.target.closest('div').dataset.code === "ShiftLeft" ||
+       event.target.closest('div') && event.target.closest('div').dataset.code === "ShiftRight") {
       keysDownFunc();
    }
 });
