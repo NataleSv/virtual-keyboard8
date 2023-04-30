@@ -105,7 +105,7 @@ textDescription.append(OSInfo);
 
 let infoLanguageSwitching = document.createElement('p');
 infoLanguageSwitching.classList.add("os-info");
-infoLanguageSwitching.innerHTML = "Для переключения языка комбинация: ShiftLeft + AltLeft";
+infoLanguageSwitching.innerHTML = "Для переключения языка комбинация: AltLeft + ShiftLeft";
 textDescription.append(infoLanguageSwitching);
 
 
@@ -267,6 +267,8 @@ document.addEventListener('mousedown', function (event) {
       document.querySelector("textarea").value = entryField.slice(0, startCursor - 1);
    }
 
+
+   
    if (event.target.dataset.code === "CapsLock") {
       if (CapsLock === "0") {
          CapsLock = "1";
