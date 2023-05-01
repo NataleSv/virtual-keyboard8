@@ -114,8 +114,7 @@ section {
 
 body {
   line-height: 1;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 ol,
@@ -141,18 +140,17 @@ table {
   border-spacing: 0;
 }
 
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration {
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
 
-input[type="search"] {
+input[type=search] {
   -webkit-appearance: none;
   -moz-appearance: none;
-  -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
 
@@ -198,12 +196,9 @@ audio:not([controls]) {
  *    user zoom.
  */
 html {
-  font-size: 100%;
-  /* 1 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */
-  -ms-text-size-adjust: 100%;
-  /* 2 */
+  font-size: 100%; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  -ms-text-size-adjust: 100%; /* 2 */
 }
 
 /**
@@ -226,10 +221,8 @@ a:hover {
  * 2. Improve image quality when scaled in IE 7.
  */
 img {
-  border: 0;
-  /* 1 */
-  -ms-interpolation-mode: bicubic;
-  /* 2 */
+  border: 0; /* 1 */
+  -ms-interpolation-mode: bicubic; /* 2 */
 }
 
 /**
@@ -261,13 +254,10 @@ fieldset {
  * 3. Correct alignment displayed oddly in IE 6/7.
  */
 legend {
-  border: 0;
-  /* 1 */
+  border: 0; /* 1 */
   padding: 0;
-  white-space: normal;
-  /* 2 */
-  *margin-left: -7px;
-  /* 3 */
+  white-space: normal; /* 2 */
+  *margin-left: -7px; /* 3 */
 }
 
 /**
@@ -280,14 +270,10 @@ button,
 input,
 select,
 textarea {
-  font-size: 100%;
-  /* 1 */
-  margin: 0;
-  /* 2 */
-  vertical-align: baseline;
-  /* 3 */
-  *vertical-align: middle;
-  /* 3 */
+  font-size: 100%; /* 1 */
+  margin: 0; /* 2 */
+  vertical-align: baseline; /* 3 */
+  *vertical-align: middle; /* 3 */
 }
 
 /**
@@ -320,15 +306,12 @@ select {
  *    Known issue: inner spacing remains in IE 6.
  */
 button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  -webkit-appearance: button;
-  /* 2 */
-  cursor: pointer;
-  /* 3 */
-  *overflow: visible;
-  /* 4 */
+html input[type=button],
+input[type=reset],
+input[type=submit] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+  *overflow: visible; /* 4 */
 }
 
 /**
@@ -345,17 +328,12 @@ html input[disabled] {
  * 3. Remove excess padding in IE 7.
  *    Known issue: excess padding remains in IE 6.
  */
-input[type="checkbox"],
-input[type="radio"] {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  /* 1 */
-  padding: 0;
-  /* 2 */
-  *height: 13px;
-  /* 3 */
-  *width: 13px;
-  /* 3 */
+input[type=checkbox],
+input[type=radio] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+  *height: 13px; /* 3 */
+  *width: 13px; /* 3 */
 }
 
 /**
@@ -363,11 +341,8 @@ input[type="radio"] {
  * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
  *    (include `-moz` to future-proof).
  */
-input[type="search"] {
-  -webkit-appearance: textfield;
-  /* 1 */
-  -webkit-box-sizing: content-box;
-  /* 2 */
+input[type=search] {
+  -webkit-appearance: textfield; /* 1 */ /* 2 */
   box-sizing: content-box;
 }
 
@@ -375,8 +350,8 @@ input[type="search"] {
  * Remove inner padding and search cancel button in Safari 5 and Chrome
  * on OS X.
  */
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -394,10 +369,8 @@ input::-moz-focus-inner {
  * 2. Improve readability and alignment in all browsers.
  */
 textarea {
-  overflow: auto;
-  /* 1 */
-  vertical-align: top;
-  /* 2 */
+  overflow: auto; /* 1 */
+  vertical-align: top; /* 2 */
 }
 
 /**
@@ -448,8 +421,7 @@ textarea {
 }
 
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .wrapper {
@@ -463,10 +435,8 @@ textarea {
   background-color: rgba(255, 255, 255, 0.56);
   border-radius: 10px;
   color: #464646;
-  -webkit-transition: all .2s;
-  transition: all .2s;
+  transition: all 0.2s;
 }
-
 .btn:not(.active):hover {
   background-color: rgba(154, 204, 253, 0.55);
   cursor: pointer;
@@ -474,10 +444,8 @@ textarea {
 
 .active {
   background-color: rgba(104, 179, 252, 0.55);
-  -webkit-box-shadow: 0px 0px 2px 2px rgba(0, 137, 255, 0.35);
-          box-shadow: 0px 0px 2px 2px rgba(0, 137, 255, 0.35);
-  -webkit-transition: all .2s;
-  transition: all .2s;
+  box-shadow: 0px 0px 2px 2px rgba(0, 137, 255, 0.35);
+  transition: all 0.2s;
 }
 
 .simpleBtn {
@@ -489,212 +457,142 @@ textarea {
 }
 
 .b0 {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
   grid-area: b0;
 }
 
 .b1 {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
   grid-area: b1;
 }
 
 .b3 {
-  -ms-grid-row: 1;
-  -ms-grid-column: 4;
   grid-area: b3;
 }
 
 .b4 {
-  -ms-grid-row: 1;
-  -ms-grid-column: 5;
   grid-area: b4;
 }
 
 .b5 {
-  -ms-grid-row: 1;
-  -ms-grid-column: 6;
   grid-area: b5;
 }
 
 .b6 {
-  -ms-grid-row: 1;
-  -ms-grid-column: 7;
   grid-area: b6;
 }
 
 .b7 {
-  -ms-grid-row: 1;
-  -ms-grid-column: 8;
   grid-area: b7;
 }
 
 .b8 {
-  -ms-grid-row: 1;
-  -ms-grid-column: 9;
   grid-area: b8;
 }
 
 .b9 {
-  -ms-grid-row: 1;
-  -ms-grid-column: 10;
   grid-area: b9;
 }
 
 .b10 {
-  -ms-grid-row: 1;
-  -ms-grid-column: 11;
   grid-area: b10;
 }
 
 .b11 {
-  -ms-grid-row: 1;
-  -ms-grid-column: 12;
   grid-area: b11;
 }
 
 .b12 {
-  -ms-grid-row: 2;
-  -ms-grid-column: 2;
   grid-area: b12;
 }
 
 .b13 {
-  -ms-grid-row: 2;
-  -ms-grid-column: 3;
   grid-area: b13;
 }
 
 .b14 {
-  -ms-grid-row: 2;
-  -ms-grid-column: 4;
   grid-area: b14;
 }
 
 .b15 {
-  -ms-grid-row: 2;
-  -ms-grid-column: 5;
   grid-area: b15;
 }
 
 .b16 {
-  -ms-grid-row: 2;
-  -ms-grid-column: 6;
   grid-area: b16;
 }
 
 .b17 {
-  -ms-grid-row: 2;
-  -ms-grid-column: 7;
   grid-area: b17;
 }
 
 .b18 {
-  -ms-grid-row: 2;
-  -ms-grid-column: 8;
   grid-area: b18;
 }
 
 .b19 {
-  -ms-grid-row: 2;
-  -ms-grid-column: 9;
   grid-area: b19;
 }
 
 .b20 {
-  -ms-grid-row: 2;
-  -ms-grid-column: 10;
   grid-area: b20;
 }
 
 .b21 {
-  -ms-grid-row: 2;
-  -ms-grid-column: 11;
   grid-area: b21;
 }
 
 .b22 {
-  -ms-grid-row: 2;
-  -ms-grid-column: 12;
   grid-area: b22;
 }
 
 .b23 {
-  -ms-grid-row: 2;
-  -ms-grid-column: 13;
   grid-area: b23;
 }
 
 .b24 {
-  -ms-grid-row: 2;
-  -ms-grid-column: 14;
   grid-area: b24;
 }
 
 .b25 {
-  -ms-grid-row: 3;
-  -ms-grid-column: 2;
   grid-area: b25;
 }
 
 .b26 {
-  -ms-grid-row: 3;
-  -ms-grid-column: 3;
   grid-area: b26;
 }
 
 .b27 {
-  -ms-grid-row: 3;
-  -ms-grid-column: 4;
   grid-area: b27;
 }
 
 .b28 {
-  -ms-grid-row: 3;
-  -ms-grid-column: 5;
   grid-area: b28;
 }
 
 .b29 {
-  -ms-grid-row: 3;
-  -ms-grid-column: 6;
   grid-area: b29;
 }
 
 .b30 {
-  -ms-grid-row: 3;
-  -ms-grid-column: 7;
   grid-area: b30;
 }
 
 .b31 {
-  -ms-grid-row: 3;
-  -ms-grid-column: 8;
   grid-area: b31;
 }
 
 .b32 {
-  -ms-grid-row: 3;
-  -ms-grid-column: 9;
   grid-area: b32;
 }
 
 .b33 {
-  -ms-grid-row: 3;
-  -ms-grid-column: 10;
   grid-area: b33;
 }
 
 .b34 {
-  -ms-grid-row: 3;
-  -ms-grid-column: 11;
   grid-area: b34;
 }
 
 .b35 {
-  -ms-grid-row: 3;
-  -ms-grid-column: 12;
   grid-area: b35;
 }
 
@@ -703,87 +601,58 @@ textarea {
 }
 
 .b37 {
-  -ms-grid-row: 4;
-  -ms-grid-column: 4;
   grid-area: b37;
 }
 
 .b38 {
-  -ms-grid-row: 4;
-  -ms-grid-column: 5;
   grid-area: b38;
 }
 
 .b39 {
-  -ms-grid-row: 4;
-  -ms-grid-column: 6;
   grid-area: b39;
 }
 
 .b40 {
-  -ms-grid-row: 4;
-  -ms-grid-column: 7;
   grid-area: b40;
 }
 
 .b41 {
-  -ms-grid-row: 4;
-  -ms-grid-column: 8;
   grid-area: b41;
 }
 
 .b42 {
-  -ms-grid-row: 4;
-  -ms-grid-column: 9;
   grid-area: b42;
 }
 
 .b43 {
-  -ms-grid-row: 4;
-  -ms-grid-column: 10;
   grid-area: b43;
 }
 
 .b44 {
-  -ms-grid-row: 4;
-  -ms-grid-column: 11;
   grid-area: b44;
 }
 
 .b45 {
-  -ms-grid-row: 4;
-  -ms-grid-column: 12;
   grid-area: b45;
 }
 
 .b46 {
-  -ms-grid-row: 4;
-  -ms-grid-column: 13;
   grid-area: b46;
 }
 
 .b00 {
-  -ms-grid-row: 1;
-  -ms-grid-column: 13;
   grid-area: b00;
 }
 
 .backspace {
-  -ms-grid-row: 1;
-  -ms-grid-column: 14;
-  -ms-grid-column-span: 2;
   grid-area: backspace;
 }
 
 .tab {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
   grid-area: tab;
 }
 
 .del {
-  -ms-grid-row: 2;
-  -ms-grid-column: 15;
   grid-area: del;
 }
 
@@ -792,92 +661,61 @@ textarea {
 }
 
 .enter {
-  -ms-grid-row: 3;
-  -ms-grid-column: 13;
-  -ms-grid-column-span: 3;
   grid-area: enter;
 }
 
 .shift-l {
-  -ms-grid-row: 4;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
   grid-area: shift-l;
 }
 
 .top {
-  -ms-grid-row: 4;
-  -ms-grid-column: 14;
   grid-area: top;
 }
 
 .shift-r {
-  -ms-grid-row: 4;
-  -ms-grid-column: 15;
   grid-area: shift-r;
 }
 
 .ctrl-l {
-  -ms-grid-row: 5;
-  -ms-grid-column: 1;
   grid-area: ctrl-l;
 }
 
 .win {
-  -ms-grid-row: 5;
-  -ms-grid-column: 2;
   grid-area: win;
 }
 
 .alt-l {
-  -ms-grid-row: 5;
-  -ms-grid-column: 3;
   grid-area: alt-l;
 }
 
 .space {
-  -ms-grid-row: 5;
-  -ms-grid-column: 4;
-  -ms-grid-column-span: 7;
   grid-area: space;
   color: rgba(255, 255, 255, 0.56);
 }
-
 .space:hover {
   color: rgba(104, 179, 252, 0.55);
 }
-
 .space .active {
   color: rgba(0, 137, 255, 0.55);
 }
 
 .alt-r {
-  -ms-grid-row: 5;
-  -ms-grid-column: 11;
   grid-area: alt-r;
 }
 
 .ctrl-r {
-  -ms-grid-row: 5;
-  -ms-grid-column: 12;
   grid-area: ctrl-r;
 }
 
 .left {
-  -ms-grid-row: 5;
-  -ms-grid-column: 13;
   grid-area: left;
 }
 
 .bottom {
-  -ms-grid-row: 5;
-  -ms-grid-column: 14;
   grid-area: bottom;
 }
 
 .right {
-  -ms-grid-row: 5;
-  -ms-grid-column: 15;
   grid-area: right;
 }
 
@@ -904,16 +742,13 @@ textarea {
 }
 
 .flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .virtual-keyboard {
-  display: -ms-grid;
   display: grid;
   gap: 5px 5px;
-      grid-template-areas: "b0 b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b00 backspace backspace" "tab b12 b13 b14 b15 b16 b17 b18 b19 b20 b21 b22 b23 b24 del" "сaps-lock b25 b26 b27 b28 b29 b30 b31 b32 b33 b34 b35 enter enter enter" "shift-l shift-l  shift-l b37 b38 b39 b40 b41 b42 b43 b44 b45 b46 top shift-r" "ctrl-l win alt-l space space space space space space space alt-r ctrl-r left bottom right";
+  grid-template-areas: "b0 b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b00 backspace backspace" "tab b12 b13 b14 b15 b16 b17 b18 b19 b20 b21 b22 b23 b24 del" "сaps-lock b25 b26 b27 b28 b29 b30 b31 b32 b33 b34 b35 enter enter enter" "shift-l shift-l  shift-l b37 b38 b39 b40 b41 b42 b43 b44 b45 b46 top shift-r" "ctrl-l win alt-l space space space space space space space alt-r ctrl-r left bottom right";
 }
 
 .text-description {
@@ -922,8 +757,6 @@ textarea {
   font-weight: bold;
   color: rgba(0, 137, 255, 0.55);
 }
-
 .text-description p {
   padding-top: 30px;
-}
-/*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */
