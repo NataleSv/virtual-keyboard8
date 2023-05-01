@@ -140,28 +140,28 @@ let btn = document.querySelectorAll('.btn');
 let flag = false;
 
 
-let keysUpFunc = function keysUpFunc() {
+function keysUpFunc() {
    for(let i = 0; i < arrBtn; i++) {
       keysDown[i].classList.add('hidden');
       keysUp[i].classList.remove('hidden');
    }
 }
 
-let keysDownFunc = function keysDownFunc() {
+function keysDownFunc() {
    for(let i = 0; i < arrBtn; i++) {
       keysUp[i].classList.add('hidden');
       keysDown[i].classList.remove('hidden');
    }
 }
 
-let changeEngLang = function changeEngLang() {
+function changeEngLang() {
    for (let i = 0; i < rusLang.length; i++) {
       rusLang[i].classList.add('hidden');
       engLang[i].classList.remove('hidden');
    }
 }
 
-let changeRusLang = function changeRusLang() {
+function changeRusLang() {
    for (let i = 0; i < engLang.length; i++) {
       engLang[i].classList.add('hidden');
       rusLang[i].classList.remove('hidden');
@@ -169,14 +169,14 @@ let changeRusLang = function changeRusLang() {
    }
 }
 
-let deleteActiveClass = function deleteActiveClass() {
+function deleteActiveClass() {
    if(document.querySelector('.active')) {
       let activeBtn = document.querySelector('.active');
       activeBtn.classList.remove('active');
    }
 }
 
-let addActiveClass = function addActiveClass(eventCode) {
+function addActiveClass (eventCode) {
    if (document.querySelector('#'+eventCode)){
       let activeBtn = document.querySelector('#'+eventCode);
       activeBtn.classList.add('active');
