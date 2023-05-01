@@ -138,7 +138,7 @@ let engLang = document.getElementsByClassName("eng");
 
 let btn = document.querySelectorAll('.btn');
 let flag = false;
-
+let targetBtn; 
 
 function keysUpFunc() {
    for(let i = 0; i < arrBtn; i++) {
@@ -202,8 +202,16 @@ function addValueTextBtn (entryField, key, keyUp) {
    }
 }
 
+function doKeyUp(){
+   deleteActiveClass();
+   textarea.focus();
+   localStorage.setItem('lang', lang);
+}
+
 
 document.addEventListener('keydown', function(event) {
+   addActiveClass(event.code);
+   //textarea.focus();
    let entryField = document.querySelector("textarea").value;
    for(let i = 0; i < keys.length; i++) {
       if (event.code === keys[i]['code'] && keys[i]['type'] !== 'functional') {
@@ -216,8 +224,38 @@ document.addEventListener('keydown', function(event) {
          }
       }
    }
-});
 
+
+   if(event.shiftKey === true) {
+      Shift = '1';
+      keysUpFunc();
+}
+
+if(event.code === "AltLeft") flag = true;
+if(event.code === "ShiftLeft" && flag) {
+   flag = false;
+
+   if(lang === 'en') {
+      lang = 'ru';
+      changeRusLang();
+
+   } else if (lang === 'ru') {
+      lang = 'en';
+     changeEngLang();
+   }
+}
+
+if(event.code === "CapsLock") {
+      if (CapsLock === "0") {
+         CapsLock = "1";
+      } else if(CapsLock === "1") {
+         CapsLock = "0";
+      }
+   }
+
+
+});
+/*
 document.addEventListener('keydown', function(event) { 
    addActiveClass(event.code);
    textarea.focus();
@@ -249,10 +287,14 @@ document.addEventListener('keydown', function(event) {
          }
       }
 });
+*/
 
+
+/*
 
 document.addEventListener('keyup', function(event) {
    deleteActiveClass();
+   textarea.focus();
 
    if(event.shiftKey === false) {
       Shift = '0';
@@ -260,15 +302,21 @@ document.addEventListener('keyup', function(event) {
    }
    localStorage.setItem('lang', lang);
 });
-
+*/
+/*
 document.addEventListener('mousedown', function (event) {
    if (event.target.closest('div')) {
       addActiveClass(event.target.closest('div').dataset.code);
    }
 },true);
 
-
+*/
 document.addEventListener('mousedown', function (event) {
+
+   
+   if (event.target.closest('div')) {
+      addActiveClass(event.target.closest('div').dataset.code);
+   }
 
    let entryField = document.querySelector("textarea").value;
    
@@ -344,15 +392,26 @@ document.addEventListener('mousedown', function (event) {
    }
 });
 
-document.addEventListener('mouseup', function (event) {
-   deleteActiveClass();
-   if (event.target.closest('div') && event.target.closest('div').dataset.code === "ShiftLeft" ||
-       event.target.closest('div') && event.target.closest('div').dataset.code === "ShiftRight") {
+document.addEventListener('keyup', function(event) {
+
+   doKeyUp();
+
+   if(event.shiftKey === false) {
+      Shift = '0';
       keysDownFunc();
-   }
-   localStorage.setItem('lang', lang);
+   } 
 });
 
+document.addEventListener('mouseup', function (event) {
+   
+   doKeyUp();
+
+   targetBtn = event.target.closest('div');
+   if (targetBtn && (targetBtn.dataset.code === "ShiftLeft" ||
+   targetBtn.dataset.code === "ShiftRight")) {
+      keysDownFunc();
+   }  
+});
 
 
 document.addEventListener('DOMContentLoaded', function () {
